@@ -1,0 +1,29 @@
+#!/usr/bin/python3
+
+import sys
+import os
+
+def list_all_packages():
+    packages = []
+    top = os.getcwd()
+    g = os.walk(top)
+    for path, dir_list, file_list in g:
+        for file_name in file_list:
+            if (file_name == "r_package.xml"):
+                packages.append(path)
+    return packages
+
+class CompileTask():
+    def __init(self, package):
+        self.package = package
+        print("init task" self.package)
+
+
+if __name__ == "__main__":
+    packages = list_all_packages()
+    for p in packages:
+        print(p)
+        task = CompileTask(p)
+
+
+
